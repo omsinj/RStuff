@@ -1,0 +1,7 @@
+install.packages("dbscan")
+library(dbscan)
+data(DS3)
+kNNdistplot(DS3, k = 3)
+abline(h = 5, col = "red", lty = 2)
+res <- dbscan(DS3, eps = 5, minPts = 3)
+plot(DS3, col = res$cluster + 1L, pch = res$cluster + 1L)
